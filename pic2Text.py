@@ -1,11 +1,12 @@
 #-*- coding:utf-8 -*-
 from PIL import Image,ImageDraw,ImageFont
+# from Pillow import Image,ImageDraw,ImageFont
 
 def pic2Text(_file,_text):
 	img = Image.open(_file).convert("RGBA")
-	w = 100 #宽度固定
+	w = 1080 #宽度固定
 	h = int((float(img.size[1])/float(img.size[0]))*w) #高度按比例得出
-	fontSize = 20 #输出字体大小
+	fontSize = 8 #输出字体大小
 	img.thumbnail((w,h)) #获取缩略图
 	src = img.convert('L') #转换成灰度图
 	minGrey = 255 #最小灰度
@@ -34,5 +35,5 @@ def pic2Text(_file,_text):
 	output.save(_file.split('.')[0] + '_text.jpg','JPEG')
 
 if __name__ == '__main__':
-	textList = ['骤','撒','啊','哈','王','一']
-	pic2Text('test.jpg',textList)
+    textList = ['许','蓉','我','爱','你']
+    pic2Text("D52A6717.JPG",textList)
